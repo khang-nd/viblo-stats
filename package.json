@@ -1,0 +1,15 @@
+{
+  "name": "viblo-stats",
+  "version": "0.1.0",
+  "description": "Viblo stats anywhere",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "author": "khang-nd",
+  "license": "MIT",
+  "devDependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7"
+  }
+}

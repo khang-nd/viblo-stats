@@ -1,0 +1,18 @@
+{
+  "en": {
+    "answers": "Answers",
+    "followers": "Followers",
+    "posts": "Total posts",
+    "questions": "Questions",
+    "reputation": "Reputations",
+    "views": "Total post views"
+  },
+  "vi": {
+    "answers": "Giải đáp",
+    "followers": "Người theo dõi",
+    "posts": "Bài đăng",
+    "questions": "Câu hỏi",
+    "reputation": "Điểm uy tín",
+    "views": "Tổng lượt xem"
+  }
+}
