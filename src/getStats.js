@@ -10,8 +10,7 @@ module.exports = (req, res) => {
   res.header("Content-Type", "image/svg+xml");
 
   if (!message) {
-    res.send(Error("Unsupported language!"));
-    return;
+    return res.send(Error("Unsupported language!"));
   }
 
   fetch(username)

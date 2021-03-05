@@ -1,10 +1,11 @@
 {
   "name": "viblo-stats",
   "version": "0.1.0",
-  "description": "Viblo stats anywhere",
-  "main": "src/index.js",
+  "description": "Access Viblo stats anywhere as an image",
+  "main": "app.js",
   "scripts": {
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon app.js",
+    "start": "node app.js"
   },
   "author": "khang-nd",
   "license": "MIT",
