@@ -1,14 +1,5 @@
-const https = require("https");
+const axios = require("axios").default;
 const API = "https://api.viblo.asia/users/";
 
-module.exports = (username) => {
-  return new Promise((resolve, reject) => {
-    https
-      .get(API + username, (response) => {
-        let data = "";
-        response.on("data", (chunk) => (data += chunk));
-        response.on("end", () => resolve(JSON.parse(data)));
-      })
-      .on("error", reject);
-  });
-};
+module.exports = (username) =>
+  axios.get(API + username).then((response) => response.data);

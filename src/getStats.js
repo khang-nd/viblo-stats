@@ -3,17 +3,16 @@ const i18n = require("./i18n.json");
 const Card = require("./Card");
 const Error = require("./Error");
 
-module.exports = (req, res) => {
-  const { username } = req.params;
-  const { lang = "en" } = req.query;
-  const message = i18n[lang];
+module.exports = async (req, res) => {
+  const { user, lang } = req.query;
+  const message = i18n[lang] || i18n.en;
   res.header("Content-Type", "image/svg+xml");
 
-  if (!message) {
-    return res.send(Error("Unsupported language!"));
+  if (!user) {
+    return res.send(Error("The user query is missing!"));
   }
 
-  fetch(username)
+  fetch(user)
     .then((stats) => {
       const {
         posts_count,
@@ -25,7 +24,7 @@ module.exports = (req, res) => {
       } = stats.data;
 
       res.send(
-        new Card(username, { ...req.query })
+        new Card(user, { ...req.query })
           .createRow(message.views, total_post_views)
           .createRow(message.posts, posts_count)
           .createRow(message.questions, questions_count)
@@ -35,5 +34,5 @@ module.exports = (req, res) => {
           .render()
       );
     })
-    .catch(console.error);
+    .catch(() => res.send(Error("Something went wrong!")));
 };
